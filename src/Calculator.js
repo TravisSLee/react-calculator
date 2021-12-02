@@ -9,7 +9,17 @@ export default function Calculator() {
     const ops = ['/', 'x', '+', '-', '.'] 
 
     const updateCalc = value =>{
+        if (
+            ops.includes(value) && calc === '' || 
+            ops.includes(value) && ops.includes(calc.slice(-1))
+        ) {
+            return
+        }
         setCalc(calc + value)
+
+        if (!ops.includes(value)) {
+            setResult(eval(calc + value).toString())
+        }
     }
     
     const createDigits = () =>{
@@ -24,12 +34,17 @@ export default function Calculator() {
         }
         return digits
     }
+
+    const calculate = () =>{
+        setCalc(eval(calc).toString())
+    }
     
     
     return (
         <div className="calculator">
             <div className="display"> 
-                {result ? <span>(0)</span> : ''} 
+                {result ? <span>({result})</span> : ''}&
+                nbsp;
                 { calc || "0"}
             </div>
             
