@@ -17,7 +17,9 @@ export default function Calculator() {
 
         for (let i=1; i< 10; i++){
             digits.push(
-                <button key={i}>{i}</button>
+                <button key={i} onClick={() => updateCalc(i.toString())}>
+                    {i}
+                </button>
             )
         }
         return digits
@@ -32,16 +34,16 @@ export default function Calculator() {
             </div>
             
             <div className="operators">
-                <button className="divide">/</button>
-                <button className="mult">x</button>
-                <button className="plus">+</button>
-                <button className="min">-</button>
+                <button className="divide" onClick={() => updateCalc('/')}>/</button>
+                <button className="mult" onClick={() => updateCalc('*')}>x</button>
+                <button className="plus" onClick={() => updateCalc('+')}>+</button>
+                <button className="min" onClick={() => updateCalc('-')}>-</button>
                 <button className="delete">DEL</button>
             </div>
             <div className="digits">
                 { createDigits() }
-                <button>0</button>
-                <button>.</button>
+                <button onClick={() => updateCalc('0')}>0</button>
+                <button onClick={() => updateCalc('.')}>.</button>
                 <button>= </button>
             </div>
 
