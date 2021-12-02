@@ -39,6 +39,14 @@ export default function Calculator() {
         setCalc(eval(calc).toString())
     }
     
+    const deleteLast = () => {
+        if (calc == ''){
+            return
+        }
+
+        const value = calc.slice(0, -1)
+        setCalc(value)
+    }
     
     return (
         <div className="calculator">
@@ -53,13 +61,13 @@ export default function Calculator() {
                 <button className="mult" onClick={() => updateCalc('*')}>x</button>
                 <button className="plus" onClick={() => updateCalc('+')}>+</button>
                 <button className="min" onClick={() => updateCalc('-')}>-</button>
-                <button className="delete">DEL</button>
+                <button className="delete" onClick={deleteLast}>DEL</button>
             </div>
             <div className="digits">
                 { createDigits() }
                 <button onClick={() => updateCalc('0')}>0</button>
                 <button onClick={() => updateCalc('.')}>.</button>
-                <button>= </button>
+                <button onClick={calculate}> = </button>
             </div>
 
         </div>
