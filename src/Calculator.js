@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
+import './index.css'
 
 export default function Calculator() {
 
-    const [calc, SetCalc] = useState('')
-    const [result, SetResult] = useState('')
+    const [calc, setCalc] = useState('')
+    const [result, setResult] = useState('')
 
     const ops = ['/', 'x', '+', '-', '.'] 
 
@@ -51,8 +52,7 @@ export default function Calculator() {
     return (
         <div className="calculator">
             <div className="display"> 
-                {result ? <span>({result})</span> : ''}&
-                nbsp;
+                {result ? <span>({result})</span> : ''}
                 { calc || "0"}
             </div>
             

@@ -62,10 +62,14 @@ button:hover{
     opacity: 0.9;
 }
 
-.operators{
-    display: 1 1 0%;
+.operators {
+    display: flex;
+}
+
+.operators button{
+    flex: 1 1 0%;
     background-color: var(--primary);
-    font-weight:700;
+    font-weight: 700;
 }
 
 .digits {
