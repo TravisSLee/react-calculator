@@ -48,6 +48,10 @@ export default function Calculator() {
         const value = calc.slice(0, -1)
         setCalc(value)
     }
+
+    const clear = () => {
+        setCalc('')
+    }
     
     return (
         <div className="calculator">
@@ -62,6 +66,7 @@ export default function Calculator() {
                 <button className="plus" onClick={() => updateCalc('+')}>+</button>
                 <button className="min" onClick={() => updateCalc('-')}>-</button>
                 <button className="delete" onClick={deleteLast}>DEL</button>
+                <button className="clear" onClick={clear}>Clear</button>
             </div>
             <div className="digits">
                 { createDigits() }
